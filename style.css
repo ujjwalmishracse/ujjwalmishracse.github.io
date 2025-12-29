@@ -199,6 +199,8 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
+    overflow-x: auto;
+    overflow: hidden;
     padding: 0 20px;
 }
 
@@ -474,4 +476,44 @@ body {
 /* SHOW dropdown on hover */
 .dots-link:hover .dots-dropdown {
     display: block;
+}
+/* ===== FORCE HORIZONTAL SCROLL FIX ===== */
+
+.deals-section .products-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 12px;
+}
+
+/* 5 products visible */
+.deals-section .product-card {
+    flex: 0 0 calc(100% / 5 - 13px);
+    max-width: calc(100% / 5 - 13px);
+
+    background: #fff;
+    border-radius: 6px;
+    padding: 16px;
+    text-align: center;
+
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+/* image fix */
+.deals-section .product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+}
+
+/* scrollbar (optional) */
+.deals-section .products-grid::-webkit-scrollbar {
+    height: 6px;
+}
+.deals-section .products-grid::-webkit-scrollbar-thumb {
+    background: #cfcfcf;
+    border-radius: 10px;
 }
